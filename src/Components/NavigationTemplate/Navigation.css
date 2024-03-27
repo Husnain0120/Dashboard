@@ -8,8 +8,34 @@
     color: white;
     background: linear-gradient(10deg,#810551 ,#05454d);
     padding: 5px 10px;
+    overflow: hidden;
+}
+.navigation.active{
+    width:max-content;
+}
+.navigation .menu {
+    position: absolute;
+    
+    left: 10;
+    top: 0;
+    margin-left:auto ;
+    
+    aspect-ratio: 1;
+    font-size: 20px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    cursor: pointer;
 }
 
+.navigation.active .menu {
+    position: relative;
+}
+.navigation .menu.active{
+    rotate: 180deg;
+}
 .navigation header{
     position: relative;
     display: flex;
@@ -31,6 +57,20 @@
     bottom:0 ;
 }
 
+.navigation.dark header {
+    background-color: rgba(0, 0, 0, 0.41);
+}
+
+.navigation.active header{
+    padding: 0;
+    margin-top: 10px;
+    background-color: transparent;
+}
+.navigation.active header::after,
+.navigation.active header span{
+    display: none;
+}
+
 .navigation header .profile {
     height: 50px;
     aspect-ratio: 1;
@@ -46,4 +86,22 @@
 
 .navigation header span {
     font-size: 10px;
+}
+.navigation.active header .profile{
+    height:40px ;
+}
+.navigation .divder {
+    position: relative;
+    margin:0  auto;
+    height: 1px;
+    width: 80%;
+    background-color:rgba(255, 255, 255, 0.689) ;
+
+}
+.navigation .bg-waves{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    opacity:0.;
 }

@@ -1,0 +1,82 @@
+.content {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4,24%);
+    grid-gap: 10px;
+    padding: 10px;
+ 
+}
+
+.content .row {
+ position: relative;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ background: linear-gradient(40deg,var(--clr-i),var(--clr-ii));
+ padding: 10px;
+ border-radius: 10px;
+ transition: 0.2s ease;
+ overflow: hidden;
+}
+
+.content .row:hover{
+  scale: 0.99;
+}
+
+.content .row .bg-waves,.content .row .bg-waves__{
+  position: absolute;
+  left: 0;
+  opacity: 0.4; 
+  top: 0;
+}
+.content .row .bg-waves{
+  top: 0;
+}
+.content .row .bg-waves__{
+  bottom: 0;
+}
+
+.content .row.header {
+    height: 100px;
+    --clr-i:#00464e;
+    --clr-ii:#810551;
+
+}
+.content .row.header:nth-child(1){
+  grid-column: span 2;
+}
+.content .row.header:nth-child(2){
+  grid-column: span 2;
+}
+
+.content .row .cog{
+  position: absolute;
+  top: 8px;
+  left: 8px;
+ cursor: grab;
+ color: white;
+}
+.content .row.header .text-head{
+  position: relative;
+  color: rgba(255, 255, 255, 0.889);
+  font-size: 16px;
+  font-family:sans-serif,raleway;
+ font-weight: 400;
+}
+
+.content .row.header .divider{
+  height: 1px;
+  width: 35%;
+  background-color: rgba(255,255,255,0.514);
+  margin: 10px 0;
+}
+
+.content .row.header .notifications {
+   display: flex;
+   padding: 10px 16px ;
+   background-color: rgba(255,255,255,0.24);
+   border-radius: 50px;
+   gap: 15px;
+   color: white;
+}
