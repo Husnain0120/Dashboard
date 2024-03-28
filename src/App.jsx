@@ -3,6 +3,8 @@ import './App.css'
 import Navigation from './Components/NavigationTemplate/Navigation'
 import {ThemeContext} from './ThemeContext'
 import Main from './Components/Main/Main'
+import Login from './Components/LogIn/Login'
+
 function App() {
 const [darkTheme,setDarkTheme]=useState(true)
 
@@ -11,8 +13,10 @@ const [darkTheme,setDarkTheme]=useState(true)
    <ThemeContext.Provider value={{darkTheme,setDarkTheme}}>
    <div className='App'>
    
-    <Navigation/>
-    <Main/>
+    {/* <Navigation/>
+    <Main/> */}
+
+    <Login/>
    </div>
    </ThemeContext.Provider>
    </>
