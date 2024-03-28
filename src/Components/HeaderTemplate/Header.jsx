@@ -7,10 +7,16 @@ import {TbMessages} from'react-icons/tb'
 import { HiOutlineLogout, HiOutlineMoon } from 'react-icons/hi'
 import { RiSettingsLine } from 'react-icons/ri'
 import { GrAnalytics } from "react-icons/gr";
+import { signOut } from 'firebase/auth'
+import { auth } from '../../Firebase'
 function Header() {
     const {darkTheme,setDarkTheme}=useContext(ThemeContext)
      const changeTheme=()=>{
       setDarkTheme(!darkTheme)
+     }
+
+     const logout = ()=>{
+      signOut(auth)
      }
   return (
     <header className={` ${darkTheme && "dark"}`}>
@@ -26,7 +32,7 @@ function Header() {
         <div className="divider"></div>
         <HiOutlineMoon className='icon' onClick={changeTheme}/>
         <RiSettingsLine className='icon'/>
-        <HiOutlineLogout className='icon'/>
+        <HiOutlineLogout className='icon'onClick={logout}/>
         <div className="divider"></div>
 
         <div className='user'>

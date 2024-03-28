@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Navigation.css'
 import Nav from '../NaviconTemplate/Nav'
 import { RxDashboard } from "react-icons/rx";
@@ -14,6 +14,7 @@ import { RiUserFollowFill,RiNotificationLine } from "react-icons/ri";
 import { ThemeContext } from '../../ThemeContext';
 function Navigation() {
   const [nav,setNav]=useState(false)
+  const [username,setUsername]=useState("")
  const {darkTheme,setDarkTheme}=useContext(ThemeContext)
 
   const handlmanubtn=()=>{
@@ -23,6 +24,9 @@ function Navigation() {
   const changeTheme=()=>{
      setDarkTheme(!darkTheme)
   }
+  useEffect(()=>{
+ setUsername (  localStorage.getItem("username"))
+  },[])
   return (
    <>
    
@@ -36,7 +40,7 @@ function Navigation() {
           <div className='profile'>
               <img src="https://img.freepik.com/free-photo/indoor-picture-cheerful-handsome-young-man-having-folded-hands-looking-directly-smiling-sincerely-wearing-casual-clothes_176532-10257.jpg?t=st=1711456289~exp=1711459889~hmac=44d6d48ef69ed6647f657dda62d3cc647e9b605f5949322a4ac112c556dfefbc&w=900" alt="user-img" className="profile-img" />
           </div>
-          <span>Create_ambition</span>
+          <span>{username}</span>
       </header>
 
       <Nav title={"Dashboard"} Icon={RxDashboard} />

@@ -1,4 +1,4 @@
-import { useContext,useState } from 'react'
+import { useContext,useEffect,useState } from 'react'
 import './Content1.css'
 import CircularProgress from '../CircularProgress/CircularProgress'
 import { ThemeContext } from '../../ThemeContext'
@@ -13,6 +13,7 @@ import { GiSettingsKnobs } from "react-icons/gi";
 import { FaDribbble, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 
 function Content1() {
+  const[username,setUsername]=useState("")
   const[value_i]=useState(Math.floor(Math.random()*100))
   const [value_i_offset]=useState( 315-(value_i/100)* 315)
 
@@ -22,6 +23,10 @@ function Content1() {
   const[value_iii]=useState(Math.floor(Math.random()*100))
   const [value_iii_offset]=useState( 315-(value_iii/100)* 315)
     const {darkTheme , setDarktheme}=useContext(ThemeContext)
+
+    useEffect(()=>{
+      setUsername(localStorage.getItem("username"))
+    },[])
   return (
     <div className={`content ${darkTheme && 'dark'}`}>
 
@@ -188,7 +193,7 @@ function Content1() {
           <img src="https://img.freepik.com/free-photo/indoor-picture-cheerful-handsome-young-man-having-folded-hands-looking-directly-smiling-sincerely-wearing-casual-clothes_176532-10257.jpg?t=st=1711456289~exp=1711459889~hmac=44d6d48ef69ed6647f657dda62d3cc647e9b605f5949322a4ac112c556dfefbc&w=900" alt="" className="profile-img" />
         </div>
         <div className="info">
-          <h2 className='admin-name'>creative Husnain</h2>
+          <h2 className='admin-name'>{username}</h2>
           <span className='admin-about'>FrontEnd Web Developer</span>
         </div>
         <div className="admin-socials">
